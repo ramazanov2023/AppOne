@@ -6,4 +6,5 @@ import androidx.recyclerview.widget.RecyclerView
 @BindingAdapter("inWatchList")
 fun initWatchedList(recycler: RecyclerView, watchedList: List<String>) {
     recycler.adapter
+
 }
