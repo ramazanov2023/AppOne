@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/watchedFragment">
+
+    <fragment
+        android:id="@+id/watchedFragment"
+        tools:layout="@layout/fragment_watched"
+        android:name="com.example.appone.ui.watched.WatchedFragment"
+        android:label="WatchedFragment" >
+        <action
+            android:id="@+id/action_watchedFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_watchedFragment_to_watchLaterFragment"
+            app:destination="@id/watchLaterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/watchLaterFragment"
+        tools:layout="@layout/fragment_watch_later"
+        android:name="com.example.appone.ui.watchlater.WatchLaterFragment"
+        android:label="WatchLaterFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        tools:layout="@layout/fragment_search"
+        android:name="com.example.appone.ui.search.SearchFragment"
+        android:label="SearchFragment" />
+</navigation>

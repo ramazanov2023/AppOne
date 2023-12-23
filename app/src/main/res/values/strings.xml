@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AppOne</string>
+    <string name="watched">Watched</string>
+    <string name="search">Search</string>
+    <string name="watch_later">Watch Later</string>
+    <string name="example_item_title">Blood Shoot</string>
+    <string name="example_item_title_rus">Удар крови</string>
+</resources>
