@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="anime"
+            name="viewModel"
             type="com.example.appone.ui.watched.WatchedViewModel" />
     </data>
 
@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"
-            app:inWatchList="@{anime.watchedList}"
+            app:inWatchList="@{viewModel.watchedList}"
             tools:itemCount="7"
             tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="-84dp"
