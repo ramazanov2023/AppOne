@@ -13,7 +13,4 @@ data class RemoteAnime(
     val aired_on:String? = "",
 )
 
-data class Image(
-    val original:String? = "",
-    val fake:Int? = 0
-)
+

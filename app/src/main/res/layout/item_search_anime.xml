@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="anime"
+            type="com.example.appone.data.local.SearchAnime" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/item_poster"
+            android:layout_width="110dp"
+            android:layout_height="154dp"
+            android:scaleType="centerCrop"
+            app:inAnimePreview="@{anime.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/dsfg_1" />
+
+        <TextView
+            android:id="@+id/item_title_eng"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:text="@{anime.name}"
+            android:textSize="14dp"
+            android:textColor="@color/white_text_main"
+            app:layout_constraintEnd_toEndOf="@id/item_poster"
+            app:layout_constraintStart_toStartOf="@id/item_poster"
+            app:layout_constraintTop_toBottomOf="@id/item_poster"
+            tools:text="@string/example_item_title" />
+
+        <TextView
+            android:id="@+id/item_title_rus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="1"
+            android:text="@{anime.russian}"
+            android:textSize="14dp"
+            android:textColor="@color/white_text_desc"
+            app:layout_constraintEnd_toEndOf="@id/item_poster"
+            app:layout_constraintStart_toStartOf="@id/item_poster"
+            app:layout_constraintTop_toBottomOf="@id/item_title_eng"
+            tools:text="@string/example_item_title_rus" />
+
+        <TextView
+            app:layout_constraintBottom_toBottomOf="@id/item_poster"
+            app:layout_constraintEnd_toEndOf="@id/item_poster"
+            tools:text="7.8"
+            android:text="@{anime.score}"
+            android:textSize="14dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textColor="@color/white"
+            android:background="#4CAF50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

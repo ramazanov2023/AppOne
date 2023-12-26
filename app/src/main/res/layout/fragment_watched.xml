@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#673AB7"
+        android:background="@color/white_main"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
@@ -26,7 +26,7 @@
             tools:itemCount="7"
             tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="-84dp"
-            tools:listitem="@layout/item_anime" />
+            tools:listitem="@layout/item_watched_anime" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

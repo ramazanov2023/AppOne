@@ -1,8 +1,7 @@
-package com.example.appone.data.local
+package com.example.appone.data.remote
 
-import com.example.appone.data.remote.Image
 
-data class LocalAnime(
+data class Anime(
     val id:Int? = 0,
     val name:String? = "",
     val russian:String? = "",
@@ -13,3 +12,7 @@ data class LocalAnime(
     val aired_on:String? = "",
 )
 
+data class Image(
+    val original:String? = "",
+    val fake:Int = 0
+)

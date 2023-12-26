@@ -24,12 +24,10 @@ class WatchedFragment:Fragment() {
         val binding = FragmentWatchedBinding.inflate(inflater)
         setHasOptionsMenu(true)
 
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-
         binding.watchedRecycler.adapter = WatchedAdapter()
 
-
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
 
 
