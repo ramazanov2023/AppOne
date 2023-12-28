@@ -5,21 +5,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.appone.databinding.FragmentWatchLaterBinding
 
-class WatchLaterFragment:Fragment() {
+class WatchLaterFragment:Fragment(),SudokuBoardView.OnTouchListener {
+
+    private val viewModel by viewModels<WatchLaterViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentWatchLaterBinding.inflate(inflater)
+        binding.sudokuBoard.registerOnTouchListener(this)
 
-
-
-
+        viewModel.sudokuGame.selectedCellLiveData.observe(viewLifecycleOwner, Observer {
+            binding.sudokuBoard.updateSelectedCell(it)
+        })
 
 
         return binding.root
+    }
+
+    override fun onTouchCell(selectRow: Int, selectCol: Int) {
+        viewModel.sudokuGame.updateSelectedCell(selectRow,selectCol)
     }
 }

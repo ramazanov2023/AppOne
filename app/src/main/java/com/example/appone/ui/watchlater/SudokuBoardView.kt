@@ -17,10 +17,11 @@ class SudokuBoardView(context:Context,attr:AttributeSet): View(context,attr) {
 
     private var selectCol = 6
     private var selectRow = 7
+    private var listener:SudokuBoardView.OnTouchListener? = null
 
     private val filledCell = Paint().apply {
-//        color = resources.getColor(R.color.selected_cell)
-        color = Color.parseColor("#4CAF50")
+        color = resources.getColor(R.color.selected_cell)
+//        color = Color.parseColor("#4CAF50")
         style = Paint.Style.FILL
     }
 
@@ -98,6 +99,22 @@ class SudokuBoardView(context:Context,attr:AttributeSet): View(context,attr) {
     private fun handleClickCell(x: Float, y: Float) {
         selectCol = (x/cellSize).toInt()
         selectRow = (y/cellSize).toInt()
-        invalidate()
+        listener?.onTouchCell(selectRow,selectCol)
+    }
+
+    fun updateSelectedCell(cell: Pair<Int, Int>?) {
+        cell?.let {
+            selectCol = cell.second
+            selectRow = cell.first
+            invalidate()
+        }
+    }
+
+    fun registerOnTouchListener(listener:OnTouchListener){
+        this.listener = listener
+    }
+
+    interface OnTouchListener{
+        fun onTouchCell(selectRow: Int, selectCol: Int)
     }
 }

@@ -14,8 +14,8 @@
     <color name="white_text_desc">#C6C6C6</color>
 
     <color name="numbers">#E4E4E4</color>
-    <color name="link_cells">#CFCFCF</color>
-    <color name="selected_cell">#4CAF50</color>
+    <color name="link_cells">#C7D5DD</color>
+    <color name="selected_cell">#55B2FA</color>
 
 
 </resources>
