@@ -20,9 +20,16 @@ class WatchLaterFragment:Fragment(),SudokuBoardView.OnTouchListener {
         val binding = FragmentWatchLaterBinding.inflate(inflater)
         binding.sudokuBoard.registerOnTouchListener(this)
 
+        viewModel.sudokuNumbers.numbersLiveData.observe(viewLifecycleOwner, Observer {
+            binding.sudokuBoard.addSudokuNumbers(it)
+        })
+
         viewModel.sudokuGame.selectedCellLiveData.observe(viewLifecycleOwner, Observer {
             binding.sudokuBoard.updateSelectedCell(it)
         })
+
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
 
         return binding.root

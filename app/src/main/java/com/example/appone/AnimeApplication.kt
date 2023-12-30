@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.appone.data.AnimeRepository
 import com.example.appone.data.DefaultAnimeRepository
 import com.example.appone.data.ServiceLocator
+import com.example.appone.ui.watchlater.SudokuNumbersGenerator
 
 class AnimeApplication : Application() {
 
