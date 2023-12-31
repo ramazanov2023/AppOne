@@ -42,7 +42,7 @@ class SudokuBoardView(context: Context, attr: AttributeSet) : View(context, attr
     }
 
     private val thinLine = Paint().apply {
-        color = Color.BLACK
+        color = resources.getColor(R.color.light_line)
         style = Paint.Style.STROKE
         strokeWidth = 2F
     }
@@ -106,24 +106,27 @@ class SudokuBoardView(context: Context, attr: AttributeSet) : View(context, attr
 
     private fun drawText(canvas: Canvas?) {
         sudokuNumbers?.forEach {
-            val valueCell = it.value.toString()
-            val col = it.col
-            val row = it.row
 
-            val textBounds = Rect()
+            if(!it.hide) {
+                val valueCell = it.value.toString()
+                val col = it.col
+                val row = it.row
 
-            number.getTextBounds(valueCell, 0, valueCell.length, textBounds)
+                val textBounds = Rect()
 
-            val numberWidth = number.measureText(valueCell)
+                number.getTextBounds(valueCell, 0, valueCell.length, textBounds)
 
-            val numberHeight = textBounds.height()
+                val numberWidth = number.measureText(valueCell)
 
-            canvas?.drawText(
-                valueCell,
-                ((col * cellSize) + cellSize / 2 - numberWidth / 2).toFloat(),
-                ((row * cellSize) - cellSize / 2 + numberHeight / 2).toFloat(),
-                number
-            )
+                val numberHeight = textBounds.height()
+
+                canvas?.drawText(
+                    valueCell,
+                    ((col * cellSize) + cellSize / 2 - numberWidth / 2).toFloat(),
+                    ((row * cellSize) - cellSize / 2 + numberHeight / 2).toFloat(),
+                    number
+                )
+            }
         }
     }
 

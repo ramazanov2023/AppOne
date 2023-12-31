@@ -3,6 +3,7 @@ package com.example.appone.ui.watchlater
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import java.util.*
 
 class SudokuNumbersGenerator {
 
@@ -74,7 +75,8 @@ class SudokuNumbersGenerator {
         var phase2 = changeOrientation(phase1)
         var phase3 = mixMainArray(phase2)
 
-        _numbersLiveData.value = getNumbers(phase3)
+        var phase4 = getNumbers(phase3)
+        _numbersLiveData.value = hideRandomNumbers(phase4)
         Log.e("asas","2  getShuffleNumbersList")
     }
 
@@ -91,6 +93,38 @@ class SudokuNumbersGenerator {
             }
         }
         return list
+    }
+
+    private fun hideRandomNumbers(list:List<Cell>):List<Cell>{
+        val numbers:List<Cell> = list
+        var r = Random()
+        var repeat = 0
+        var counter = 0
+        /*for (i in 0..repeat){
+            val cell = r.nextInt(80)
+            if(numbers[cell].hide){
+                repeat++
+                return
+            }*/
+
+        while (repeat < 42){
+            val cell = r.nextInt(80)
+            if(numbers[cell].hide == false){
+                numbers[cell].hide = true
+                repeat++
+            }else{
+            }
+//            numbers[cell].hide = true
+
+//            Log.e("asas","$repeat")
+//            Log.e("asas","$counter  -  $cell")
+            Log.e("asas","$counter  -  $repeat")
+            counter++
+
+        }
+
+        return numbers
+
     }
 
     private fun printMainArray(array: Array<Array<Array<Int>>>){
