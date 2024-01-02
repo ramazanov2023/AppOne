@@ -83,15 +83,21 @@ class SudokuNumbersGenerator {
     private fun getNumbers(array: Array<Array<Array<Int>>>):List<Cell>{
         val list = arrayListOf<Cell>()
 
-        var r = 1
+        var cellId = 0
+        var r = 0
         for (i in array){
             for (a in i){
                 for (b in 0..8){
-                    list.add(Cell(row = r, col =  b, value = a[b]))
+                    list.add(Cell(row = r, col =  b, value = a[b], id = cellId))
+                    cellId++
                 }
                 r++
             }
         }
+
+//        list.forEach {
+//            Log.e("forfor","${it.row}   ${it.col}   ${it.id}    ${it.value}")
+//        }
         return list
     }
 
@@ -107,17 +113,13 @@ class SudokuNumbersGenerator {
                 return
             }*/
 
-        while (repeat < 42){
+        while (repeat < HIDE_CELLS){
             val cell = r.nextInt(80)
             if(numbers[cell].hide == false){
                 numbers[cell].hide = true
                 repeat++
             }else{
             }
-//            numbers[cell].hide = true
-
-//            Log.e("asas","$repeat")
-//            Log.e("asas","$counter  -  $cell")
             Log.e("asas","$counter  -  $repeat")
             counter++
 
